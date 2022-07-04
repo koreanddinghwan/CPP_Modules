@@ -6,23 +6,54 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 21:46:33 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/03 17:27:36 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/04 22:07:33 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <ostream>
+#include <iostream>
+#include <string>
 
 class megaphone
 {
 	private:
-		int ac;
+		int argc;
 		char **argv;
+
 	public:
-		megaphone(const int ac, const char **argv) : ac(ac), argv(argv)
+		megaphone(int ac, char **av) : argc(ac), argv(av)
+		{
+		}
+		void broadcast(void);
 };
 
-int	main(int ac, char **argv)
+void megaphone::broadcast(void)
 {
-	megaphone	phone(ac, argv);
+	int		i;
+	int		j;
+	char	letter;
 
+	if (argc == 1)
+		std::cout<<"* LOUD AND UNBEARABLE FEEDBACK NOISE *"<<std::endl;
+	else
+	{
+		i = 1;
+		while (argv[i])
+		{
+			j = 0;
+			while (argv[i][j])
+			{
+				letter = toupper(argv[i][j++]);
+				std::cout<<letter;
+			}
+			i++;
+		}
+		std::cout<<std::endl;
+	}
+}
+
+int	main(int ac, char **av)
+{
+	megaphone	megaphone(ac, av);
+
+	megaphone.broadcast();
 	return (0);
 }
