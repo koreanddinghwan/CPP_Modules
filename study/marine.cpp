@@ -2,9 +2,10 @@
 
 class Marine
 {
+	private:
 		int hp;
 		int coord_x, coord_y;
-		int damage;
+		const int damage;
 		bool is_dead;
 		static int total_marine_num;
 	public:
@@ -17,12 +18,15 @@ class Marine
 		void move(int x, int y);
 
 		void show_status();
-
+		static void show_total_marine();
 		~Marine()
 		{
+			std::cout<<"ASDF"<<std::endl;
 			total_marine_num--;
 		}
 };
+
+int Marine::total_marine_num = 0;
 
 Marine::Marine()
 	: hp(50), coord_x(0), coord_y(0), damage(5), is_dead(false)
@@ -81,10 +85,17 @@ void	create_marine()
 	marine3.show_status();
 }
 
+void Marine::show_total_marine()
+{
+	std::cout<<"show total marine전체 마린 수 : "<<total_marine_num<<std::endl;
+}
+
 int main()
 {
 	Marine marine1(2, 3);
+	Marine::show_total_marine();
 	Marine marine2(3, 5);
+	Marine::show_total_marine();
 
 	marine1.show_status();
 	marine2.show_status();

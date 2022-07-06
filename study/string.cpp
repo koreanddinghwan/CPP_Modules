@@ -29,7 +29,12 @@ class MyString
 	MyString&	assign(const char *str);
 	MyString&	assign(const MyString &str);
 	void	reserve(int size);
-	char	at(int index);
+	char	at(int index) const;
+	int		capacity(void) const;
+	MyString& insert(int loc, const MyString &str);
+	MyString& insert(int loc, const char *str);
+	MyString& insert(int loc, char c);
+	MyString& erase(int loc, int num);
 };
 
 MyString::MyString(char c)
@@ -127,7 +132,7 @@ void	MyString::reserve(int size)
 char	MyString::at(int i) const
 {
 	if (i >= string_length || i < 0)
-		return (NULL);
+		return (0);
 	else
 		return (string_content[i]);
 }
@@ -138,19 +143,69 @@ MyString&	MyString::insert(int loc, const MyString& str)
 		return *this;
 	if (string_length + str.string_length > memory_capacity)
 	{
-		memory_capacity = string_length + str.string_length;
+		if (memory_capacity * 2 > string_length + str.string_length)
+			memory_capacity *= 2;
+		else
+			memory_capacity = string_length + str.string_length;
 		char *prev_string_content = string_content;
 		string_content = new char[memory_capacity];
-		for (int i = 0; i < loc; i++)
+		int i;
+		for (i = 0; i < loc; i++)
 			string_content[i] = prev_string_content[i];
+		for (int j = 0; j != str.string_length; j++)
+		string_content[i + j] = str.string_content[j];
+
+		for (; i < string_length; i++)
+			string_content[str.string_length + i] = prev_string_content[i];
+
+		delete []prev_string_content;
+		string_length = string_length + str.string_length;
+		return *this;
 	}
+	for (int i = string_length - 1; i >= loc; i--)
+		string_content[i + str.string_length] = string_content[i];
+
+	for (int i = 0; i < str.string_length; i++)
+		string_content[i + loc] = str.string_content[i];
+	string_length = string_length + str.string_length;
+	return (*this);
+}
+
+MyString& MyString::insert(int loc, const char *str)
+{
+	MyString temp(str);
+	return (insert(loc, temp));
+}
+
+MyString& MyString::insert(int loc, char c)
+{
+	MyString temp(c);
+	return (insert(loc, temp));
+}
+
+int MyString::capacity() const
+{
+	return memory_capacity;
+}
+
+MyString &erase(int loc, int num)
+{
+	if (num < 0 || loc < 0 || loc > string_length)
+		return *this;
+
+	for (int i = loc + num; i < string_length; i++)
+		string_content[i - num] = string_content[i];
+	string_length -= num;
+	return (*this);
 }
 
 int main()
 {
-	MyString str1("Hello World!");
-	MyString str2(str1);
-
+	MyString str1("very very very long string");
+	str1.reserve(30);
+	
+	std::cout<<"Capacity : "<<str1.capacity()<<std::endl;
+	std::cout<<"String length : " << str1.length()<<std::endl;
 	str1.println();
-	str2.println();
+	return 0;
 }

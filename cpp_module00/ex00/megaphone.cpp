@@ -6,11 +6,10 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 21:46:33 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/04 22:07:33 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/05 18:08:42 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <iostream>
-#include <string>
 
 class megaphone
 {
@@ -49,6 +48,8 @@ void megaphone::broadcast(void)
 		std::cout<<std::endl;
 	}
 }
+
+char *p = (char *) new int();
 
 int	main(int ac, char **av)
 {
