@@ -6,15 +6,16 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 22:30:06 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/06 22:02:26 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/07 01:43:37 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 #include <iostream>
 #include <string>
-#include <stdlib.h>
+#include <cstdlib>
 #include <cstdio>
+#include <iomanip>
 #include "Contact.hpp"
 
 class PhoneBook
@@ -23,6 +24,7 @@ class PhoneBook
 		int size;
 		Contact contacts[8];
 		void update();
+		void print_index() const;
 	public:
 		PhoneBook(void);
 		void add();

@@ -6,7 +6,7 @@
 #    By: myukang <myukang@student.42.kr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/03 17:22:13 by myukang           #+#    #+#              #
-#    Updated: 2022/07/03 17:22:29 by myukang          ###   ########.fr        #
+#    Updated: 2022/07/07 01:50:22 by myukang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ CC = c++ -Wall -Werror -Wextra
 CFLAGS = -c
 STD = -std=c++98
 
-OBJS = $(addprefix ./, megaphone.cpp)
+SRCS = $(addprefix ./, megaphone.cpp)
+OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
 
@@ -25,3 +26,15 @@ $(NAME) : $(OBJS)
 %.o : %.c
 	$(CC) $(STD) $^ -c
 
+clean :
+	rm $(OBJS)
+
+fclean :
+	make clean;
+	rm $(NAME)
+
+re : 
+	make fclean;
+	make all;
+
+.PHONY : all fclean clean re

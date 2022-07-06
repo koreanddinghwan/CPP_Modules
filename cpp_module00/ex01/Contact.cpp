@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 00:34:58 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/06 22:16:53 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/07 01:30:33 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,19 @@
 
 void Contact::get_string(std::string &obj)
 {
-	std::cout<<"입력 >>"<<std::endl;
-	std::getline(std::cin, obj);
-	if (std::cin.eof())
+	while (1)
 	{
-		std::cin.clear();
-		clearerr(stdin);
-		get_string(obj);
+		std::getline(std::cin, obj);
+		if (std::cin.eof())
+		{
+			std::cout<<"다시 입력"<<std::endl;
+			std::cin.clear();
+			clearerr(stdin);
+			continue ;
+		}
+		else
+			break ;
 	}
-	std::cout<<"test"<<std::endl;
-	std::cin.clear();
-	clearerr(stdin);
 }
 
 void Contact::make_contact(void)
@@ -39,4 +41,48 @@ void Contact::make_contact(void)
 	get_string(phone_number);
 	std::cout<<"개인정보를 입력하세요" <<std::endl;
 	get_string(darkest_secret);
+}
+
+const char *Contact::get_first_name(char *buffer) const
+{
+	if (first_name.length() > 10)
+	{
+		std::size_t length = first_name.copy(buffer, 9, 0);
+		buffer[length] = '.';
+		buffer[length + 1] = '\0';
+		return (buffer);
+	}
+	return (first_name.data());
+}
+
+const char *Contact::get_last_name(char *buffer) const
+{
+	if (last_name.length() > 10)
+	{
+		std::size_t length = last_name.copy(buffer, 9, 0);
+		buffer[length] = '.';
+		buffer[length + 1] = '\0';
+		return (buffer);
+	}
+	return (last_name.data());
+}
+
+const char *Contact::get_nick_name(char *buffer) const
+{
+	if (nick_name.length() > 10)
+	{
+		std::size_t length = nick_name.copy(buffer, 9, 0);
+		buffer[length] = '.';
+		buffer[length + 1] = '\0';
+		return (buffer);
+	}
+	return (nick_name.data());
+}
+
+void Contact::printall(void) const
+{
+	std::cout<<first_name.data()<<std::endl;
+	std::cout<<last_name.data()<<std::endl;
+	std::cout<<nick_name.data()<<std::endl;
+	std::cout<<phone_number.data()<<std::endl;
 }

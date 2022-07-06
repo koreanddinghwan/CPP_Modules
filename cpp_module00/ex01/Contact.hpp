@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 00:35:01 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/06 22:12:21 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/07 01:25:36 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ class Contact
 		void get_string(std::string &obj);
 	public:
 		void make_contact(void);
+		const char *get_first_name(char *buffer) const;
+		const char *get_last_name(char *buffer) const;
+		const char *get_nick_name(char *buffer) const;
+		void printall() const;
 };
 
 #endif

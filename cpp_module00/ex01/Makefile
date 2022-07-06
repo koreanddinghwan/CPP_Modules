@@ -6,7 +6,7 @@
 #    By: myukang <myukang@student.42.kr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/03 17:22:13 by myukang           #+#    #+#              #
-#    Updated: 2022/07/06 21:53:33 by myukang          ###   ########.fr        #
+#    Updated: 2022/07/07 01:51:02 by myukang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,4 +37,4 @@ re :
 	make fclean;
 	make all;
 
-.PHONY : $(NAME) clean fclean
+.PHONY : all clean fclean re
