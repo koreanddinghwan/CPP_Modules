@@ -5,26 +5,26 @@
 #                                                     +:+ +:+         +:+      #
 #    By: myukang <myukang@student.42.kr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/03 17:22:13 by myukang           #+#    #+#              #
-#    Updated: 2022/07/07 14:46:42 by myukang          ###   ########.fr        #
+#    Created: 2022/07/07 19:13:04 by myukang           #+#    #+#              #
+#    Updated: 2022/07/07 21:11:57 by myukang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
-CC = c++ -Wall -Werror -Wextra -g3
+NAME=simulation
+CCP = c++ -Wall -Werror -Wextra -g3
 CFLAGS = -c
 STD = -std=c++98
 
-SRCS = $(addprefix ./, PhoneBook.cpp Contact.cpp main.cpp)
+SRCS = $(addprefix ./, main.cpp Weapon.cpp HumanA.cpp HumanB.cpp)
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(STD) $^ -o $@
+	$(CCP) $(STD) $^ -o $@
 
 %.o : %.c
-	$(CC) $(STD) $^ -c
+	$(CCP) $(STD) $^ -c
 
 clean :
 	rm -rf $(OBJS)
