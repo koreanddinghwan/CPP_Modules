@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 22:09:49 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/07 01:46:16 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/07 14:19:12 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,38 @@
 
 PhoneBook::PhoneBook(void) : size(0)
 {}
+
+int	PhoneBook::is_empty(std::string obj) const
+{
+	int			i;
+	const char *str;
+
+	str = obj.data();
+	i = 0;
+	while (str[i])
+	{
+		if (isprint(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int PhoneBook::exist_string(std::string obj) const
+{
+	int			i;
+	const char *str;
+
+	str = obj.data();
+	i = 0;
+	while (str[i])
+	{
+		if (isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 void PhoneBook::add(void)
 {
@@ -57,7 +89,7 @@ void PhoneBook::_exit(void) const
 
 void PhoneBook::update(void)
 {
-	for (int i = 0;i < 8; i++)
+	for (int i = 0;i < 7; i++)
 	{
 		contacts[i] = contacts[i+1];
 	}
@@ -73,9 +105,9 @@ void PhoneBook::print_index(void) const
 	while (1)
 	{
 		std::getline(std::cin, str);
-		if (std::cin.eof())
+		if (std::cin.eof() || is_empty(str) || exist_string(str))
 		{
-			std::cout<<"다시 입력"<<std::endl;
+			std::cout<<"***다시 입력***"<<std::endl;
 			std::cin.clear();
 			clearerr(stdin);
 			continue ;

@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 00:35:01 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/07 01:25:36 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/07 14:17:27 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <string>
 #include <cstdio>
+#include <cctype>
 class Contact
 {
 	private:
@@ -24,6 +25,7 @@ class Contact
 		std::string	phone_number;
 		std::string	darkest_secret;
 		void get_string(std::string &obj);
+		int  is_empty(std::string obj) const;
 	public:
 		void make_contact(void);
 		const char *get_first_name(char *buffer) const;
