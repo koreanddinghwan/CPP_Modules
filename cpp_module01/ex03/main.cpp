@@ -6,11 +6,32 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 19:13:25 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/07 21:12:11 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/08 00:15:28 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "HumanA.hpp"
+#include "HumanB.hpp"
+
 int main(void)
 {
+	{
+		Weapon club = Weapon("crude spiked club");
 
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon club = Weapon("crude spiked club");
+		
+		HumanB jim("Jim");//jim not armed here
+		jim.attack();
+		jim.setWeapon(club);//jim armed here
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
+	return (0);
 }

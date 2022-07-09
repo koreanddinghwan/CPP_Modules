@@ -6,13 +6,12 @@
 #    By: myukang <myukang@student.42.kr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 14:46:17 by myukang           #+#    #+#              #
-#    Updated: 2022/07/07 14:50:09 by myukang          ###   ########.fr        #
+#    Updated: 2022/07/08 00:32:33 by myukang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=world_war_z
 CCP = c++ -Wall -Werror -Wextra -g3
-CFLAGS = -c
 STD = -std=c++98
 
 SRCS = $(addprefix ./, main.cpp newZombie.cpp randomChump.cpp Zombie.cpp)
@@ -23,7 +22,7 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	$(CCP) $(STD) $^ -o $@
 
-%.o : %.c
+%.o : %.cpp
 	$(CCP) $(STD) $^ -c
 
 clean :

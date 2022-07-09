@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/07 23:13:45 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/08 00:13:20 by myukang          ###   ########.fr       */
+/*   Created: 2022/07/08 00:36:12 by myukang           #+#    #+#             */
+/*   Updated: 2022/07/09 15:40:59 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
+#include "main.hpp"
 
-HumanB::HumanB(std::string name) : name(name)
+void ac_num_check(int ac)
 {
-	this->weapon = NULL;
-}
-
-void HumanB::attack(void) const
-{
-	if (this->weapon == NULL)
+	if (ac != 4)
 	{
-		std::cout<<name<<" don't have any arm"<<std::endl;
-		return ;
+		std::cout<<"check parameters..."<<std::endl;
+		exit(1);
 	}
-	std::cout<<name<<" attacks with their "<<weapon->getType()<<std::endl;
+	else
+		std::cout<<"parameter number ok"<<std::endl;
 }
 
-void HumanB::setWeapon(Weapon &weapon)
+int main(int ac, char *argv[])
 {
-	this->weapon = &weapon;
+	ac_num_check(ac);
+	Replacer replacer = Replacer(argv);
+	Replacer.openfile();
+	Replacer.replace();
 }

@@ -6,7 +6,7 @@
 #    By: myukang <myukang@student.42.kr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 19:13:04 by myukang           #+#    #+#              #
-#    Updated: 2022/07/08 00:34:04 by myukang          ###   ########.fr        #
+#    Updated: 2022/07/08 01:48:54 by myukang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC = c++
 CFLAGS = -Wall -Werror -Wextra -g3 -std=c++98
 INC = .
 
-SRCS = $(addprefix ./, main.cpp Weapon.cpp HumanA.cpp HumanB.cpp)
+SRCS = $(addprefix ./, main.cpp Replacer.cpp)
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
