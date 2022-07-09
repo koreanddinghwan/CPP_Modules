@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 01:37:00 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/09 15:59:47 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/09 17:23:45 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,31 +39,52 @@ void Replacer::openfile(void) const
 		old_file.close();
 		exit(1);
 	}
+	replace(old_file, new_file);
+	old_file.close();
+	new_file.close();
 }
 
-void Replacer::replace(void) const
+void Replacer::get_replace_line(std::string &line, size_t found, std::string &replace_line) const
+{
+	if (std::string::npos == found)
+	{
+		replace_line.append(line);
+		return ;
+	}
+	else
+	{
+		size_t	i;
+		i = 0;
+		std::cout<<"++++++++++++before+++++++++++++=="<<std::endl;
+		std::cout<<"line : "<<line<<std::endl;
+		std::cout<<"reaplaced line : "<<replace_line<<std::endl;
+		while (i < found)
+			replace_line.push_back(line[i++]);
+		line.erase(0, found + s1.length());
+		replace_line.append(s2);
+		std::cout<<"++++++++++++after+++++++++++++=="<<std::endl;
+		std::cout<<"line : "<<line<<std::endl;
+		std::cout<<"reaplaced line : "<<replace_line<<std::endl;
+		get_replace_line(line, line.find(s1), replace_line);
+	}
+}
+
+void Replacer::replace(std::fstream &old_file, std::fstream &new_file) const
 {
 	std::string line;
-	std::string write_buffer;
+	std::string replace_line;
 
-	size_t len = s1.length();
 	while (std::getline(old_file, line))
 	{
-		while (true)
+		replace_line.clear();
+		size_t found = line.find(s1);
+		if (std::string::npos == found)
+			new_file.write(line.data(), line.length());
+		else
 		{
-			std::size_t pos = line.find(s1);
-			if (pos == std::string::npos)
-			{
-				line.assign(write_buffer);
-				new_file.write(line, line.length());
-				write_buffer.clear();
-				break ;
-			}
-			else
-			{
-				write_buffer.append();
-
-			}
+			get_replace_line(line, found, replace_line);
+			new_file.write(replace_line.data(), replace_line.length());
 		}
+		new_file.write("\n", 1);
 	}
 }

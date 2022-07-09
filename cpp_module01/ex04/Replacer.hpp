@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 01:37:01 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/09 15:51:39 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/09 17:06:58 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ class Replacer
 		void openfile(void) const;
 	private:
 		std::string			get_new_name(std::string str);
-		void replace(void) const;
+		void replace(std::fstream &old_file, std::fstream &new_file) const;
+void get_replace_line(std::string &line, size_t found, std::string &replace_line) const;
 };
 
 

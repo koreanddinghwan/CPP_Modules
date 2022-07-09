@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 00:36:12 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/09 15:40:59 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/09 16:50:20 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ int main(int ac, char *argv[])
 {
 	ac_num_check(ac);
 	Replacer replacer = Replacer(argv);
-	Replacer.openfile();
-	Replacer.replace();
+	replacer.openfile();
 }
