@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 22:09:49 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/07 14:19:12 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/10 20:22:46 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,9 +117,9 @@ void PhoneBook::print_index(void) const
 			int	i;
 
 			i = atoi(str.data());
-			if (i >= size)
+			if (i >= size || i < 0)
 			{
-				std::cout<<"다시 입력"<<std::endl;
+				std::cout<<"***다시 입력***"<<std::endl;
 				std::cin.clear();
 				clearerr(stdin);
 				continue ;

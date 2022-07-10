@@ -6,8 +6,15 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 21:57:36 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/09 21:57:36 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/10 17:39:49 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Harl.hpp"
 
+int main(void)
+{
+	Harl obj;
+
+	obj.complain("info");
+}

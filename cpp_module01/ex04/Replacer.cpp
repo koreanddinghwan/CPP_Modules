@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 01:37:00 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/09 17:23:45 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/10 13:43:38 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,10 @@ void Replacer::get_replace_line(std::string &line, size_t found, std::string &re
 	{
 		size_t	i;
 		i = 0;
-		std::cout<<"++++++++++++before+++++++++++++=="<<std::endl;
-		std::cout<<"line : "<<line<<std::endl;
-		std::cout<<"reaplaced line : "<<replace_line<<std::endl;
 		while (i < found)
 			replace_line.push_back(line[i++]);
 		line.erase(0, found + s1.length());
 		replace_line.append(s2);
-		std::cout<<"++++++++++++after+++++++++++++=="<<std::endl;
-		std::cout<<"line : "<<line<<std::endl;
-		std::cout<<"reaplaced line : "<<replace_line<<std::endl;
 		get_replace_line(line, line.find(s1), replace_line);
 	}
 }

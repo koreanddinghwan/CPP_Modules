@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 00:34:58 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/07 14:22:00 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/10 20:22:19 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void Contact::get_string(std::string &obj)
 		std::getline(std::cin, obj);
 		if (std::cin.eof() || is_empty(obj))
 		{
-			std::cout<<"***다시 입력***"<<std::endl;
+			std::cout<<"***다시 입력***"<<std::endl<<">";
 			std::cin.clear();
 			clearerr(stdin);
 			continue ;
