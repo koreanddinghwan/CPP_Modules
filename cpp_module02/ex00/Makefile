@@ -6,16 +6,16 @@
 #    By: myukang <myukang@student.42.kr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 19:13:04 by myukang           #+#    #+#              #
-#    Updated: 2022/07/12 19:42:06 by myukang          ###   ########.fr        #
+#    Updated: 2022/07/12 20:06:06 by myukang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = harlFilter
+NAME = simulation
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -g3 -std=c++98
 INC = .
 
-SRCS = $(addprefix ./, main.cpp Harl.cpp)
+SRCS = $(addprefix ./, main.cpp Fixed.cpp)
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
