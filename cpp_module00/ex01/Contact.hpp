@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 00:35:01 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/07 14:17:27 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/11 14:48:45 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ class Contact
 		std::string	nick_name;
 		std::string	phone_number;
 		std::string	darkest_secret;
-		void get_string(std::string &obj);
+		void set_string(std::string &obj);
 		int  is_empty(std::string obj) const;
 	public:
 		void make_contact(void);
-		const char *get_first_name(char *buffer) const;
-		const char *get_last_name(char *buffer) const;
-		const char *get_nick_name(char *buffer) const;
+		const std::string get_first_name(std::string &buffer) const;
+		const std::string get_last_name(std::string &buffer) const;
+		const std::string get_nick_name(std::string &buffer) const;
 		void printall() const;
 };
 

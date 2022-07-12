@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 21:57:36 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/10 17:39:49 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/11 23:02:13 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@ int main(void)
 {
 	Harl obj;
 
-	obj.complain("info");
+	obj.complain("WARNING");
+	obj.complain("INFO");
 }

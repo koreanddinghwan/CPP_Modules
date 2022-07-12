@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 22:09:49 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/10 20:22:46 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/11 14:51:03 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void PhoneBook::add(void)
 
 void PhoneBook::search(void) const
 {
-	char buffer[11];
+	std::string buffer;
 
 	std::cout.setf(std::ios::right, std::ios::adjustfield);
 	std::cout.setf(std::ios::showbase);

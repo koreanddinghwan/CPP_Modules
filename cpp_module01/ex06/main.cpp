@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 21:57:38 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/11 15:39:51 by myukang          ###   ########.fr       */
+/*   Created: 2022/07/09 21:57:36 by myukang           #+#    #+#             */
+/*   Updated: 2022/07/11 23:36:15 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#include "Harl.hpp"
 
-#include <string>
-#include <iostream>
-
-class Harl
+int main(int ac, char *av[])
 {
-	typedef struct s_table
-	{
-		std::string key;
-		void (Harl::*fp)(void);
-	} t_table;
-	private:
-		void debug(void);
-		void info(void);
-		void warning(void);
-		void error(void);
-		t_table table[4];
-	public:
-		Harl(void);
-		void complain(std::string level);
-};
+	Harl obj;
 
-#endif
+	if (ac != 2)
+		return (0);
+	obj.complain(av[1]);
+}

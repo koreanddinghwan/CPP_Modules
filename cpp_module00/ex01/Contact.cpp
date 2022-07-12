@@ -6,18 +6,16 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 00:34:58 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/10 20:22:19 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/11 15:02:45 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-int	Contact::is_empty(std::string obj) const
+int	Contact::is_empty(std::string str) const
 {
 	int			i;
-	const char *str;
 
-	str = obj.data();
 	i = 0;
 	while (str[i])
 	{
@@ -28,7 +26,7 @@ int	Contact::is_empty(std::string obj) const
 	return (1);
 }
 
-void Contact::get_string(std::string &obj)
+void Contact::set_string(std::string &obj)
 {
 	while (1)
 	{
@@ -48,57 +46,49 @@ void Contact::get_string(std::string &obj)
 void Contact::make_contact(void)
 {
 	std::cout<<"성을 입력하세요" <<std::endl<<">";
-	get_string(first_name);
+	set_string(first_name);
 	std::cout<<"이름을 입력하세요"<<std::endl<<">";
-	get_string(last_name);
+	set_string(last_name);
 	std::cout<<"별명을 입력하세요"<<std::endl<<">";
-	get_string(nick_name);
+	set_string(nick_name);
 	std::cout<<"전화번호를 입력하세요" <<std::endl<<">";
-	get_string(phone_number);
+	set_string(phone_number);
 	std::cout<<"개인정보를 입력하세요" <<std::endl<<">";
-	get_string(darkest_secret);
+	set_string(darkest_secret);
 }
 
-const char *Contact::get_first_name(char *buffer) const
+const std::string Contact::get_first_name(std::string &buffer) const
 {
 	if (first_name.length() > 10)
-	{
-		std::size_t length = first_name.copy(buffer, 9, 0);
-		buffer[length] = '.';
-		buffer[length + 1] = '\0';
-		return (buffer);
-	}
-	return (first_name.data());
+		buffer.assign(first_name, 0, 9).append(".");
+	else
+		buffer.assign(first_name);
+	return (buffer);
 }
 
-const char *Contact::get_last_name(char *buffer) const
+const std::string Contact::get_last_name(std::string &buffer) const
 {
 	if (last_name.length() > 10)
-	{
-		std::size_t length = last_name.copy(buffer, 9, 0);
-		buffer[length] = '.';
-		buffer[length + 1] = '\0';
-		return (buffer);
-	}
-	return (last_name.data());
+		buffer.assign(last_name, 0, 9).append(".");
+	else
+		buffer.assign(last_name);
+	return (buffer);
 }
 
-const char *Contact::get_nick_name(char *buffer) const
+const std::string Contact::get_nick_name(std::string &buffer) const
 {
 	if (nick_name.length() > 10)
-	{
-		std::size_t length = nick_name.copy(buffer, 9, 0);
-		buffer[length] = '.';
-		buffer[length + 1] = '\0';
-		return (buffer);
-	}
-	return (nick_name.data());
+		buffer.assign(nick_name, 0, 9).append(".");
+	else
+		buffer.assign(nick_name);
+	return (buffer);
 }
 
 void Contact::printall(void) const
 {
-	std::cout<<"성"<<first_name.data()<<std::endl;
-	std::cout<<"이름"<<last_name.data()<<std::endl;
-	std::cout<<"별명"<<nick_name.data()<<std::endl;
-	std::cout<<"전화번호"<<phone_number.data()<<std::endl;
+	std::cout<<"성"<<first_name<<std::endl;
+	std::cout<<"이름"<<last_name<<std::endl;
+	std::cout<<"별명"<<nick_name<<std::endl;
+	std::cout<<"전화번호"<<phone_number<<std::endl;
+	std::cout<<"개인정보"<<darkest_secret<<std::endl;
 }
