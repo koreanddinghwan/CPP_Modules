@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:45:35 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/13 15:11:01 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/14 01:45:34 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,36 @@ class Fixed
 		Fixed(const float num);
 		float toFloat(void) const;
 		int toInt(void) const;
+		/*
+		 * 비교연산
+		 * */
+		bool operator>(const Fixed &target) const;
+		bool operator<(const Fixed &target) const;
+		bool operator>=(const Fixed &target) const;
+		bool operator<=(const Fixed &target) const;
+		bool operator==(const Fixed &target) const;
+		bool operator!=(const Fixed &target) const;
+		/*
+		 * 기본 연산
+		 * */
+		Fixed operator+(const Fixed &target) const;
+		Fixed operator-(const Fixed &target) const;
+		Fixed operator*(const Fixed &target) const;
+		Fixed operator/(const Fixed &target) const;
+		/*
+		 * 전위연산, 후위연산
+		 * */
+		Fixed& operator++();
+		const Fixed operator++(int);
+		Fixed& operator--();
+		const Fixed operator--(int);
+		/*
+		 * functions
+		 * */
+		static Fixed& min(Fixed& a, Fixed& b);
+		static const Fixed& min(const Fixed &a, const Fixed &b);
+		static Fixed& max(Fixed& a, Fixed& b);
+		static const Fixed& max(const Fixed &a, const Fixed &b);
 };
 
 std::ostream& operator<<(std::ostream &ostm, const Fixed &ref);

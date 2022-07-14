@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 19:45:35 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/13 15:03:07 by myukang          ###   ########.fr       */
+/*   Created: 2022/07/14 01:01:02 by myukang           #+#    #+#             */
+/*   Updated: 2022/07/14 03:21:31 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#include "Point.hpp"
 
-#include <iostream>
-
-class Fixed
+int main(void)
 {
-	private:
-		int	value;
-		static const int fraction = 8;
-	public:
-		Fixed(void);
-		Fixed(const Fixed &copy);
-		Fixed& operator=(const Fixed &target);
-		~Fixed(void);
-		int getRawBits(void) const;
-		void setRawBits(int const raw);
-};
+	Point a(2.0f, 0.0f);
+	Point b(0.0f, 2.0f);
+	Point c(0.0f, 0.0f);
+	Point check(1.0f, 0.9f);
 
-#endif
+	if (bsp(a, b, c, check) == true)
+	{
+		std::cout<<"in triangle"<<std::endl;
+	}
+	else
+	{
+		std::cout<<"not in triangle"<<std::endl;
+	}
+	return (0);
+}

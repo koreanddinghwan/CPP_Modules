@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:57:27 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/14 00:42:02 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/14 00:42:24 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,147 @@ std::ostream& operator<<(std::ostream &ostm, const Fixed &ref)
 {
 	ostm<<ref.toFloat();
 	return (ostm);
+}
+
+/*
+ * ex02
+ * comparison
+ * */
+
+bool Fixed::operator>(const Fixed &target) const
+{
+	return (this->getRawBits() > target.getRawBits());
+}
+
+bool Fixed::operator<(const Fixed &target) const
+{
+	return (this->getRawBits() < target.getRawBits());
+}
+
+bool Fixed::operator>=(const Fixed &target) const
+{
+	return (this->getRawBits() >= target.getRawBits());
+}
+
+bool Fixed::operator<=(const Fixed &target) const
+{
+	return (this->getRawBits() <= target.getRawBits());
+}
+
+bool Fixed::operator==(const Fixed &target) const
+{
+	if (this->rawbits == target.getRawBits())
+		return (true);
+	else
+		return (false);
+}
+
+bool Fixed::operator!=(const Fixed &target) const
+{
+	return (!(*this == target));
+}
+
+/*
+ * arithmetic
+ * https://vanhunteradams.com/FixedPoint/FixedPoint.html
+ * */
+
+
+Fixed Fixed::operator+(const Fixed &target)
+{
+	Fixed ret(this->getRawBits() + target.getRawBits());
+	return (ret);
+}
+
+Fixed Fixed::operator-(const Fixed &target)
+{
+	Fixed ret(this->getRawBits() - target.getRawBits());
+	return (ret);
+
+}
+
+Fixed Fixed::operator*(const Fixed &target)
+{
+	long long rtn;
+	Fixed ret;
+
+	rtn = static_cast<long long>(this->getRawBits()) * static_cast<long long>(target.getRawBits());
+	rtn >>= 8;
+	ret.setRawBits(static_cast<int>(rtn));
+	return (ret);
+}
+
+Fixed Fixed::operator/(const Fixed &target)
+{
+	long long rtn;
+	Fixed ret;
+
+	if (target.getRawBits() == 0)
+	{
+		std::cout << "Zero Devision" << std::endl;
+		return (target);
+	}
+	rtn = static_cast<long long>(this->getRawBits()) << 8 / target.getRawBits();
+	ret.setRawBits(static_cast<int>(rtn));
+	return (ret);
+}
+
+Fixed& Fixed::operator++(void)
+{
+	rawbits += 1;
+	return (*this);
+}
+
+const Fixed Fixed::operator++(int)
+{
+	const Fixed retobj(*this);
+
+	this->setRawBits(this->getRawBits() + 1);
+	return (retobj);
+}
+
+Fixed& Fixed::operator--(void)
+{
+	rawbits -= 1;
+	return (*this);
+}
+
+const Fixed Fixed::operator--(int)
+{
+	const Fixed retobj(*this);
+
+	this->setRawBits(this->getRawBits() - 1);
+	return (retobj);
+}
+
+Fixed& Fixed::min(Fixed& a, Fixed& b)
+{
+	if (a <= b)
+		return (a);
+	else
+		return (b);
+}
+
+const Fixed& Fixed::min(const Fixed &a, const Fixed &b)
+{
+	if (a <= b)
+		return (a);
+	else
+		return (b);
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b)
+{
+	if (a >= b)
+		return (a);
+	else
+		return (b);
+}
+
+const Fixed& Fixed::max(const Fixed &a, const Fixed &b)
+{
+	if (a >= b)
+		return (a);
+	else
+		return (b);
 }
