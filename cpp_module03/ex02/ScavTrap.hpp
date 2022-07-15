@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/14 01:01:02 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/14 13:42:25 by myukang          ###   ########.fr       */
+/*   Created: 2022/07/14 17:22:51 by myukang           #+#    #+#             */
+/*   Updated: 2022/07/14 17:43:52 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-#include "Point.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-int main(void)
+#include "ClapTrap.hpp"
+
+class ScavTrap : public ClapTrap
 {
-	Point a(2.0f, 0.0f);
-	Point b(0.0f, 2.0f);
-	Point c(0.0f, 0.0f);
-	Point check(0.1f, 0.0f);
+	public:
+		ScavTrap(void);
+		ScavTrap(std::string name);
+		ScavTrap& operator=(const ScavTrap &target);
+		ScavTrap(const ScavTrap &copy);
+		~ScavTrap(void);
+	public:
+		void guardGate(void);
+};
 
-	if (bsp(a, b, c, check) == true)
-	{
-		std::cout<<"in triangle"<<std::endl;
-	}
-	else
-	{
-		std::cout<<"not in triangle"<<std::endl;
-	}
-	return (0);
-}
+#endif

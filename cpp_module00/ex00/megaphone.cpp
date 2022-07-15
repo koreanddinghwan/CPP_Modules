@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 21:46:33 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/05 18:08:42 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/14 14:42:25 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <iostream>
@@ -16,11 +16,9 @@ class megaphone
 	private:
 		int argc;
 		char **argv;
-
 	public:
 		megaphone(int ac, char **av) : argc(ac), argv(av)
-		{
-		}
+		{}
 		void broadcast(void);
 };
 

@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 00:34:58 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/11 15:02:45 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/14 14:45:00 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ int	Contact::is_empty(std::string str) const
 	return (1);
 }
 
-void Contact::set_string(std::string &obj)
+void Contact::set_string(std::string &obj, const char *str)
 {
+	std::cout<<str<<std::endl<<">";
 	while (1)
 	{
 		std::getline(std::cin, obj);
@@ -45,16 +46,11 @@ void Contact::set_string(std::string &obj)
 
 void Contact::make_contact(void)
 {
-	std::cout<<"성을 입력하세요" <<std::endl<<">";
-	set_string(first_name);
-	std::cout<<"이름을 입력하세요"<<std::endl<<">";
-	set_string(last_name);
-	std::cout<<"별명을 입력하세요"<<std::endl<<">";
-	set_string(nick_name);
-	std::cout<<"전화번호를 입력하세요" <<std::endl<<">";
-	set_string(phone_number);
-	std::cout<<"개인정보를 입력하세요" <<std::endl<<">";
-	set_string(darkest_secret);
+	set_string(first_name, "성을 입력하세요");
+	set_string(last_name, "이름을 입력하세요");
+	set_string(nick_name, "별명을 입력하세요");
+	set_string(phone_number, "전화번호를 입력하세요");
+	set_string(darkest_secret, "개인정보를 입력하세요");
 }
 
 const std::string Contact::get_first_name(std::string &buffer) const

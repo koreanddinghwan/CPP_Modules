@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 00:35:40 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/14 13:41:46 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/14 12:11:46 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ bool check_triangle(Point const a, Point const b, Point const c)
 Fixed ft_abs(Fixed rtn)
 {
 	if (rtn < 0)
-	{
 		return (rtn * -1);
-	}
 	else
 		return (rtn);
 }
@@ -52,8 +50,19 @@ Fixed area(Point const a, Point const b, Point const c)
 {
 	Fixed rtn;
 
-	rtn = ft_abs((a.getx()*(b.gety()-c.gety())) + (b.getx()*(c.gety()-a.gety()))+ (c.getx()*(a.gety()-b.gety())));
+	rtn = (ft_abs(a.getx()*(b.gety()-c.gety())) + ft_abs(b.getx()*(c.gety()-a.gety()))+ ft_abs(c.getx()*(a.gety()-b.gety())));
 	return (rtn);
+}
+
+/*
+ * 꼭지점인가?
+ * */
+bool isvertex(Point const a, Point const b, Point const c, Point const point)
+{
+	if ((point == a) || (point == b) || (point == c))
+		return (true);
+	else
+		return (false);
 }
 
 bool bsp(Point const a, Point const b, Point const c, Point const point)
@@ -65,6 +74,10 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 	Fixed PAB = area(point, a, b);
 	Fixed PAC = area(point, a, c);
 	Fixed PBC = area(point, b, c);
+	std::cout<<total<<std::endl;
+	std::cout<<PAB<<std::endl;
+	std::cout<<PBC<<std::endl;
+	std::cout<<PAC<<std::endl;
 	if (PAB == 0 || PBC == 0 || PAC == 0)
 		return (false);
 	if (PAB + PAC + PBC != total)

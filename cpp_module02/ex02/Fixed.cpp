@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:57:27 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/14 00:42:24 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/14 01:45:07 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,25 @@
 
 Fixed::Fixed(void) : rawbits(0)
 {
-	std::cout<<"Default constructor called"<<std::endl;
 }
 
 Fixed::Fixed(const Fixed &copy)
 {
-	std::cout<<"Copy constructor called"<<std::endl;
 	*this = copy;
 }
 
 Fixed& Fixed::operator=(const Fixed &target)
 {
-	std::cout<<"Copy assignment operator called"<<std::endl;
 	this->rawbits = target.rawbits;
 	return (*this);
 }
 
 Fixed::~Fixed(void)
 {
-	std::cout<<"Destructor called"<<std::endl;
 }
 
 int Fixed::getRawBits(void) const
 {
-	std::cout<<"getRawBits member function called"<<std::endl;
 	return (rawbits);
 }
 
@@ -60,7 +55,6 @@ void Fixed::setRawBits(int const raw)
  * */
 Fixed::Fixed(const int num)
 {
-	std::cout<<"Int constructor called"<<std::endl;
 	rawbits = num << 8;
 }
 
@@ -69,7 +63,6 @@ Fixed::Fixed(const int num)
  * */
 Fixed::Fixed(const float num)
 {
-	std::cout<<"Float constructor called"<<std::endl;
 	rawbits = static_cast<int>(roundf(num * (1 << fraction)));
 }
 
@@ -139,20 +132,19 @@ bool Fixed::operator!=(const Fixed &target) const
  * */
 
 
-Fixed Fixed::operator+(const Fixed &target)
+Fixed Fixed::operator+(const Fixed &target) const
 {
-	Fixed ret(this->getRawBits() + target.getRawBits());
+	Fixed ret = (this->toFloat() + target.toFloat());
 	return (ret);
 }
 
-Fixed Fixed::operator-(const Fixed &target)
+Fixed Fixed::operator-(const Fixed &target) const
 {
-	Fixed ret(this->getRawBits() - target.getRawBits());
+	Fixed ret = (this->toFloat() - target.toFloat());
 	return (ret);
-
 }
 
-Fixed Fixed::operator*(const Fixed &target)
+Fixed Fixed::operator*(const Fixed &target) const
 {
 	long long rtn;
 	Fixed ret;
@@ -163,7 +155,7 @@ Fixed Fixed::operator*(const Fixed &target)
 	return (ret);
 }
 
-Fixed Fixed::operator/(const Fixed &target)
+Fixed Fixed::operator/(const Fixed &target) const
 {
 	long long rtn;
 	Fixed ret;

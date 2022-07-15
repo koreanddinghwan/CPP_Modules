@@ -5,28 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/14 01:01:02 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/14 13:42:25 by myukang          ###   ########.fr       */
+/*   Created: 2022/07/14 15:12:56 by myukang           #+#    #+#             */
+/*   Updated: 2022/07/14 17:45:15 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-#include "Point.hpp"
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void)
 {
-	Point a(2.0f, 0.0f);
-	Point b(0.0f, 2.0f);
-	Point c(0.0f, 0.0f);
-	Point check(0.1f, 0.0f);
+	ClapTrap c1;
+	ScavTrap s1;
+	ScavTrap s2("s2");
 
-	if (bsp(a, b, c, check) == true)
-	{
-		std::cout<<"in triangle"<<std::endl;
-	}
-	else
-	{
-		std::cout<<"not in triangle"<<std::endl;
-	}
-	return (0);
+	c1.ShowStatus();
+	s1.guardGate();
+	s2.guardGate();
+	s1.ShowStatus();
+	s2.ShowStatus();
+	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:45:35 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/13 19:30:28 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/14 13:45:50 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ class Fixed
 		/*
 		 * arithmetic
 		 * */
-		Fixed operator+(const Fixed &target);
-		Fixed operator-(const Fixed &target);
-		Fixed operator*(const Fixed &target);
-		Fixed operator/(const Fixed &target);
+		Fixed operator+(const Fixed &target) const;
+		Fixed operator-(const Fixed &target) const;
+		Fixed operator*(const Fixed &target) const;
+		Fixed operator/(const Fixed &target) const;
 		/*
 		 * pre, post
 		 * */
