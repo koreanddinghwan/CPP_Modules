@@ -17,7 +17,6 @@
 // ************************************************************************** //
 #include <iostream>
 
-
 class Account {
 public:
 	typedef Account		t;

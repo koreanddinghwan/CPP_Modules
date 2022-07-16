@@ -12,7 +12,6 @@
 
 NAME = phonebook
 CC = c++ -Wall -Werror -Wextra -g3
-CFLAGS = -c
 STD = -std=c++98
 
 SRCS = $(addprefix ./, PhoneBook.cpp Contact.cpp main.cpp)
