@@ -25,13 +25,13 @@ class Replacer
 		const std::string	new_name;
 		const std::string	s1;
 		const std::string	s2;
-	public:
-		Replacer(char *argv[]);
-		void openfile(void) const;
 	private:
 		std::string			get_new_name(std::string str);
 		void replace(std::fstream &old_file, std::fstream &new_file) const;
-void get_replace_line(std::string &line, size_t found, std::string &replace_line) const;
+		void get_replace_line(std::string &line, size_t found, std::string &replace_line) const;
+	public:
+		Replacer(char *argv[]);
+		void openfile(void) const;
 };
 
 

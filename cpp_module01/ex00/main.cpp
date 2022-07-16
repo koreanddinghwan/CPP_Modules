@@ -15,7 +15,7 @@
 int main(void)
 {
 	std::cout<<"객체 생명주기1"<<std::endl;
-	randomChump("zombie1");
+	Zombie::randomChump("zombie1");
 
 	std::cout<<std::endl;
 
@@ -27,7 +27,7 @@ int main(void)
 	std::cout<<std::endl;
 
 	std::cout<<"객체 생명주기3"<<std::endl;
-	Zombie *zombie2 = newZombie("zombie2");
+	Zombie *zombie2 = Zombie::newZombie("zombie2");
 	zombie2->announce();
 //	delete zombie2;
 
@@ -35,7 +35,7 @@ int main(void)
 
 	std::cout<<"객체 생명주기4"<<std::endl;
 	{
-		Zombie *zombie3 = newZombie("zombie3");
+		Zombie *zombie3 = Zombie::newZombie("zombie3");
 		zombie3->announce();
 		delete zombie3;//
 	}

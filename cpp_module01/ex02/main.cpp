@@ -21,12 +21,11 @@ int main(void)
 	const std::string *stringPTR = &str;
 	const std::string &stringREF = str;
 
-	std::cout<<"literal address : "<<(void *)temp<<std::endl;
 	std::cout<<"string address : "<<&str<<std::endl;//string class allocate internal buffer
 	std::cout<<"stringPTR : "<<stringPTR<<std::endl;
 	std::cout<<"stringREF : "<<(&stringREF)<<std::endl;
 	std::cout<<std::endl;
-	std::cout<<"string varible value : "<<str.data()<<std::endl;
-	std::cout<<"value of stringPTR : "<<(*stringPTR).data()<<std::endl;
-	std::cout<<"value of stringREF : "<<stringREF.data()<<std::endl;
+	std::cout<<"string varible value : "<<str<<std::endl;
+	std::cout<<"value of stringPTR : "<<(*stringPTR)<<std::endl;
+	std::cout<<"value of stringREF : "<<stringREF<<std::endl;
 }

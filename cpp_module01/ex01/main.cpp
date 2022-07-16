@@ -14,13 +14,13 @@
 
 int main(void)
 {
-	Zombie		*zombies;
 	std::string	name("zombies");
 
-	zombies = zombieHorde(5, name);
+	Zombie *zombies = Zombie::zombieHorde(5, name);
 	for (int i = 0; i < 5; i++)
 	{
 		std::cout<<zombies[i].get_name()<<std::endl;
+		zombies[i].announce();
 	}
 	delete []zombies;
 }

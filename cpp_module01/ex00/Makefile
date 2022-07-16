@@ -14,7 +14,7 @@ NAME=world_war_z
 CCP = c++ -Wall -Werror -Wextra -g3
 STD = -std=c++98
 
-SRCS = $(addprefix ./, main.cpp newZombie.cpp randomChump.cpp Zombie.cpp)
+SRCS = $(addprefix ./, main.cpp Zombie.cpp)
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)

@@ -13,6 +13,7 @@
 # define ZOMBIE_HPP
 
 #include <iostream>
+#include <new>
 
 class Zombie
 {
@@ -21,9 +22,11 @@ class Zombie
 	public:
 		Zombie(std::string name);
 		Zombie(void);
-		void announce(void) const;
 		~Zombie(void);
+	public:
+		void announce(void) const;
+	public:
+		static Zombie	*newZombie(std::string name);
+		static void	randomChump(std::string name);
 };
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
 #endif

@@ -14,7 +14,7 @@
 
 void Zombie::set_name(std::string name)
 {
-	(this->name).assign(name);
+	this->name.assign(name);
 }
 
 const char *Zombie::get_name(void) const
@@ -22,7 +22,7 @@ const char *Zombie::get_name(void) const
 	return (this->name.data());
 }
 
-Zombie *zombieHorde(int n, const std::string name)
+Zombie *Zombie::zombieHorde(int n, const std::string name)
 {
 
 	Zombie *rtn = new Zombie[n];

@@ -12,11 +12,6 @@
 
 #include "Zombie.hpp"
 
-void Zombie::announce(void) const
-{
-	std::cout<<name<<": "<<"BraiiiiiiinnnzzzZ..."<<std::endl;
-}
-
 Zombie::Zombie(std::string name) : name(name)
 {}
 
@@ -26,4 +21,24 @@ Zombie::Zombie(void) : name("NoNamed")
 Zombie::~Zombie(void)
 {
 	std::cout<<"Destructor Called by ["<<name<<"]"<<std::endl;
+}
+
+void Zombie::announce(void) const
+{
+	std::cout<<name<<": "<<"BraiiiiiiinnnzzzZ..."<<std::endl;
+}
+
+Zombie *Zombie::newZombie(std::string name)
+{
+	Zombie *rtn;
+
+	rtn = new Zombie(name);
+	return (rtn);
+}
+
+void Zombie::randomChump(std::string name)
+{
+	Zombie temp(name);
+
+	temp.announce();
 }

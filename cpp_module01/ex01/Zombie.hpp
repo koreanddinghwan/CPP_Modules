@@ -22,12 +22,14 @@ class Zombie
 	public:
 		Zombie(std::string name);
 		Zombie(void);
-		void announce(void) const;
 		~Zombie(void);
+	public:
+		void announce(void) const;
 		void set_name(std::string name);
 		const char *get_name(void) const;
+	public:
+		static Zombie	*newZombie(std::string name);
+		static void		randomChump(std::string name);
+		static Zombie	*zombieHorde(int n, std::string name);
 };
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
-Zombie	*zombieHorde(int n, std::string name);
 #endif
