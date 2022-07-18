@@ -16,6 +16,16 @@
 
 int main(void)
 {
-	DiamondTrap d1("test");
+//	DiamondTrap d1("test");
+
+	DiamondTrap *ptr1 = new DiamondTrap("t2");
+
+	ptr1->ShowStatus();
+	ptr1->whoAmI();
+	ptr1->attack("hi");
+	delete ptr1;
+
+	ScavTrap *ptr2 = new DiamondTrap("t3");
+	delete ptr2;
 	return 0;
 }

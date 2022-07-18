@@ -14,7 +14,7 @@
 #include "ClapTrap.hpp"
 FragTrap::FragTrap(void) : ClapTrap(100, 100, 30)
 {
-	std::cout<<"["<<name<<"]"<<"FragTrap Constructor Called"<<std::endl;
+	std::cout<<"["<<name<<"]"<<"FragTrap Default Constructor Called"<<std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 30)

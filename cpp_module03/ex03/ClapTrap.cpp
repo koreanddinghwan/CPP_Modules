@@ -14,7 +14,7 @@
 
 ClapTrap::ClapTrap(void) : name("Unknown"), hp(10), energy(10), damage(0)
 {
-	std::cout<<"["<<name<<"]"<<"ClapTrap Constructor Called"<<std::endl;
+	std::cout<<"["<<name<<"]"<<"ClapTrap Default Constructor Called"<<std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : name(name), hp(10), energy(10), damage(0)

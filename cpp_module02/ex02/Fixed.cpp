@@ -55,7 +55,7 @@ void Fixed::setRawBits(int const raw)
  * */
 Fixed::Fixed(const int num)
 {
-	rawbits = num << 8;
+	rawbits = num << fraction;
 }
 
 /*
@@ -79,7 +79,7 @@ float Fixed::toFloat(void) const
  * */
 int Fixed::toInt(void) const
 {
-	return (rawbits >> 8);
+	return (rawbits >> fraction);
 }
 
 std::ostream& operator<<(std::ostream &ostm, const Fixed &ref)
@@ -150,7 +150,7 @@ Fixed Fixed::operator*(const Fixed &target) const
 	Fixed ret;
 
 	rtn = static_cast<long long>(this->getRawBits()) * static_cast<long long>(target.getRawBits());
-	rtn >>= 8;
+	rtn >>= fraction;
 	ret.setRawBits(static_cast<int>(rtn));
 	return (ret);
 }
@@ -165,7 +165,7 @@ Fixed Fixed::operator/(const Fixed &target) const
 		std::cout << "Zero Devision" << std::endl;
 		return (target);
 	}
-	rtn = static_cast<long long>(this->getRawBits()) << 8 / target.getRawBits();
+	rtn = (static_cast<long long>(this->getRawBits()) << fraction) / target.getRawBits();
 	ret.setRawBits(static_cast<int>(rtn));
 	return (ret);
 }

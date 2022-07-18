@@ -11,20 +11,20 @@
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
+#include "ClapTrap.hpp"
 
 DiamondTrap::DiamondTrap(void) : FragTrap() , ScavTrap() 
 {
-	ClapTrap::name = name.append("_clap_name");
-	this->name = "Unknown"; 
+	ClapTrap::name.append("_clap_name");
 	this->hp = 100;
 	this->energy = 50;
 	this->damage = 30;
-	std::cout<<"["<<name<<"]"<<"DiamondTrap Constructor Called"<<std::endl;
+	std::cout<<"["<<name<<"], "<<"DiamondTrap Default Constructor Called"<<std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name)  : FragTrap(name), ScavTrap(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), FragTrap(name), ScavTrap(name)
 {
-	ClapTrap::name = name.append("_clap_name");
+	ClapTrap::name.append("_clap_name");
 	this->name = name;
 	this->hp = 100;
 	this->energy = 50;
@@ -58,4 +58,6 @@ DiamondTrap::~DiamondTrap(void)
 }
 
 void DiamondTrap::whoAmI(void)
-{}
+{
+	std::cout<<"My name is"<<"["<<this->name<<"]"<<"and my Clap_name is"<<"["<<ClapTrap::name<<"]"<<std::endl;
+}

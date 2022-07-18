@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
-#include "ClapTrap.hpp"
 
 ScavTrap::ScavTrap(void) : ClapTrap(100, 50, 20)
 {
@@ -53,4 +52,17 @@ void ScavTrap::guardGate(void)
 	}
 	std::cout<<"["<<name<<"]"<<"is now in Gate keeper mode"<<std::endl;
 	energy--;
+}
+
+void ScavTrap::attack(const std::string& target)
+{
+	if (hp == 0)
+		return ;
+	if (energy == 0)
+	{
+		std::cout<<"ScavTrap ["<<name<<"] can not attack, check energy"<<std::endl;
+		return ;
+	}
+	std::cout<<"ScavTrap ["<<name<<"] attacks "<<"{"<<target<<"}, causing "<<damage<<" points of damage!"<<std::endl;
+	this->energy--;
 }

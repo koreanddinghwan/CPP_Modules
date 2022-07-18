@@ -29,7 +29,7 @@ class ClapTrap
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap& copy);
 		ClapTrap& operator=(const ClapTrap &target);
-		~ClapTrap(void);
+		virtual ~ClapTrap(void);
 		ClapTrap(unsigned int hp, unsigned int energy, unsigned int damage);
 		ClapTrap(std::string name, unsigned int hp, unsigned int energy, unsigned int damage);
 	public:

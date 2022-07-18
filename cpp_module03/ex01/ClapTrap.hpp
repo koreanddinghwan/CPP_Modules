@@ -27,11 +27,11 @@ class ClapTrap
 	public:
 		ClapTrap(void);
 		ClapTrap(std::string name);
-		ClapTrap(const ClapTrap& copy);
-		ClapTrap& operator=(const ClapTrap &target);
-		~ClapTrap(void);
 		ClapTrap(unsigned int hp, unsigned int energy, unsigned int damage);
 		ClapTrap(std::string name, unsigned int hp, unsigned int energy, unsigned int damage);
+		ClapTrap(const ClapTrap& copy);
+		ClapTrap& operator=(const ClapTrap &target);
+		virtual ~ClapTrap(void);
 	public:
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);

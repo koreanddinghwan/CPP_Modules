@@ -26,9 +26,13 @@ int main( void )
 	std::cout << b <<std::endl;
 	std::cout << Fixed::max(a, b) <<std::endl;
 
-	Fixed c(2.1f);
-	Fixed d(2);
+	Fixed c(-2.1f);
+	Fixed d(-2);
 	std::cout << c * d << std::endl;
 	std::cout << 2.1f * 2.0f<<std::endl;
+	std::cout << (c > d) << std::endl;
+	Fixed e = Fixed(4.5f);
+	Fixed f = Fixed(2.0f);
+	std::cout << (e / f) << std::endl;
 return (0);
 }

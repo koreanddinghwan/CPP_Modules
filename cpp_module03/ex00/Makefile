@@ -11,8 +11,8 @@
 # **************************************************************************** #
 
 NAME = simulation
-CC = c++
-CFLAGS = -Wall -Werror -Wextra -g3 -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Werror -Wextra -g3 -std=c++98
 INC = .
 
 SRCS = $(addprefix ./, main.cpp ClapTrap.cpp)
@@ -21,10 +21,10 @@ OBJS = $(SRCS:.cpp=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(CFLAGS) -I$(INC) $^ -o $@
+	$(CXX) $(CXXFLAGS) -I$(INC) $^ -o $@
 
 %.o : %.cpp
-	$(CC) $(CFLAGS) -I$(INC) -c $^ -o $@
+	$(CXX) $(CXXFLAGS) -I$(INC) -c $^ -o $@
 
 clean :
 	rm -rf $(OBJS)
