@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: myukang <myukang@student.42.kr>            +#+  +:+       +#+         #
+#    By: myukang <myukang@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 19:13:04 by myukang           #+#    #+#              #
-#    Updated: 2022/07/18 01:06:43 by myukang          ###   ########.fr        #
+#    Updated: 2022/07/18 13:04:15 by myukang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -g3 -std=c++98
 INC = .
 
-SRCS = $(addprefix ./, main.cpp Fixed.cpp)
+SRCS = $(addprefix ./, main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp)
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)

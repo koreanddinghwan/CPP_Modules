@@ -6,13 +6,13 @@
 #    By: myukang <myukang@student.42.kr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 19:13:04 by myukang           #+#    #+#              #
-#    Updated: 2022/07/14 01:01:00 by myukang          ###   ########.fr        #
+#    Updated: 2022/07/18 01:07:01 by myukang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = simulation
-CC = c++
-CFLAGS = -Wall -Werror -Wextra -g3 -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Werror -Wextra -g3 -std=c++98
 INC = .
 
 SRCS = $(addprefix ./, main.cpp Fixed.cpp bsp.cpp Point.cpp)
@@ -21,10 +21,10 @@ OBJS = $(SRCS:.cpp=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(CFLAGS) -I$(INC) $^ -o $@
+	$(CXX) $(CXXFLAGS) -I$(INC) $^ -o $@
 
 %.o : %.cpp
-	$(CC) $(CFLAGS) -I$(INC) -c $^ -o $@
+	$(CXX) $(CXXFLAGS) -I$(INC) -c $^ -o $@
 
 clean :
 	rm -rf $(OBJS)
