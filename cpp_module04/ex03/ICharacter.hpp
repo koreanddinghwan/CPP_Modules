@@ -3,7 +3,7 @@
 
 #include "AMateria.hpp"
 
-class ICharacter
+class ICharacter //interface class
 {
 	public:
 		virtual ~ICharacter() {}

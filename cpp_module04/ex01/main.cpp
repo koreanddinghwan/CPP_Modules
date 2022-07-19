@@ -15,7 +15,6 @@ int main()
 	std::cout<<std::endl;
 	delete i;
 	std::cout<<std::endl;
-/*	
 	const Animal *arr[100];
 	for (int i = 0; i < 100; i++)
 	{
@@ -29,7 +28,7 @@ int main()
 		std::cout<<"["<<i<<"]"<<std::endl;
 		delete arr[i];
 		std::cout<<std::endl;
-	}*/
+	}
 	
 	const Dog *test = new Dog();
 
@@ -52,5 +51,6 @@ int main()
 	test->print_think();
 
 	delete test;
+	while (1);
 	return 0;
 }
