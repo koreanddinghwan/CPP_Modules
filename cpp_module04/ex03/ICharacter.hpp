@@ -1,7 +1,8 @@
 #ifndef ICHARACTOR_HPP
 # define ICHARACTOR_HPP
 
-#include "AMateria.hpp"
+#include <string>
+class AMateria;
 
 class ICharacter //interface class
 {

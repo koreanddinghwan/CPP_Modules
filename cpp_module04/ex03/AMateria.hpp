@@ -4,7 +4,7 @@
 #include <string>
 #include <iostream>
 
-class ICharacter;
+#include "ICharacter.hpp"
 
 class AMateria
 {
@@ -14,7 +14,7 @@ class AMateria
 		AMateria(std::string const & type);
 		AMateria(const AMateria& copy);
 		AMateria& operator=(const AMateria& copy);
-		~AMateria(void);
+		virtual ~AMateria(void);
 	public:
 		std::string const & getType() const; //Returns the materia type
 		virtual AMateria* clone() const = 0;
