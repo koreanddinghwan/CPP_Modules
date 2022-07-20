@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 23:52:40 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/19 23:52:41 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/20 14:29:15 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,27 @@
 #include "Character.hpp"
 
 AMateria::AMateria(std::string const &type) : type(type)
-{}
+{
+	std::cout<<"Amateria Constructor Called"<<std::endl;
+}
 
 AMateria::AMateria(const AMateria& copy) : type(copy.type)
-{}
-
-AMateria& AMateria::operator=(const AMateria& copy)
 {
-	this->type = copy.type;
-	return (*this);
+	std::cout<<"Amateria Copy Constructor Called"<<std::endl;
 }
 
 AMateria::~AMateria(void)
-{}
+{
+	std::cout<<"Amateria Destructor Called"<<std::endl;
+}
 
 const std::string &AMateria::getType(void) const
 {
-	return (type);
+	return (this->type);
 }
 
 void AMateria::use(ICharacter &target)
 {
-	if (this->type.compare("ice") == 0)
-	{
-		std::cout<<"* shoots an ice bolt at "<<target.getName()<<" *"<<std::endl;
-	}
-	else if (this->type.compare("cure") == 0)
-	{
-		std::cout<<" * heals "<< target.getName() <<"'s wounds *"<<std::endl;
-	}
+	(void)target;
+	std::cout<<"Amateria::use Called"<<std::endl;
 }
