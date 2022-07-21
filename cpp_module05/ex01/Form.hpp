@@ -22,11 +22,11 @@ class Form
 		Form& operator=(const Form &copy);
 		~Form(void);
 	public:
-		const std::string getName(void) const;
+		std::string getName(void) const;
 		bool getSigned(void) const;
 		unsigned int getSignPerm(void) const;
 		unsigned int getExecPerm(void) const;
-		void beSigned(const Bureaucrat &bure);
+		void beSigned(const Bureaucrat &bure) throw(IsAlreadySignedException, GradeTooLowException);
 
 	class GradeTooHighException : public std::exception 
 	{
@@ -34,6 +34,11 @@ class Form
 	};
 
 	class GradeTooLowException : public std::exception
+	{
+		const char *what() const throw();
+	};
+	
+	class IsAlreadySignedException : public std::exception
 	{
 		const char *what() const throw();
 	};

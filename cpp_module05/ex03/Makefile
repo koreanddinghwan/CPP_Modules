@@ -3,7 +3,7 @@ CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -g3 -std=c++98
 INC = .
 
-SRCS = $(addprefix ./, main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp)
+SRCS = $(addprefix ./, main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp)
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)

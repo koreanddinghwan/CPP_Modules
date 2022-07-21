@@ -15,19 +15,12 @@ Bureaucrat::Bureaucrat(const std::string name, const unsigned int grade) : name(
 	std::cout<<"Bureaucrat Constructor Called"<<std::endl;
 	try {
 		if (grade < Bureaucrat::MAXGRADE)
-		{
-			GradeTooHighException e;
-			throw e;
-		}
+			throw GradeTooHighException();
 		else if (grade > Bureaucrat::MINGRADE)
-		{
-			GradeTooLowException e;
-			throw e;
-		}
+			throw GradeTooLowException();
 		this->grade = grade;
 	} catch (std::exception &e) {
-		std::cout<<e.what()<<std::endl;
-		std::cout<<"Wrong Bureaucrat Constructed...exit"<<std::endl;
+		std::cout<<"Wrong Bureaucrat Constructed.."<<e.what()<<".exit"<<std::endl;
 		exit(1);
 	}
 }
@@ -37,7 +30,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &copy) : name(copy.getName()), grade(cop
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &copy)
 {
-	this->grade = copy.getGrade();
+	(void)copy;
 	return (*this);
 }
 
@@ -46,7 +39,7 @@ Bureaucrat::~Bureaucrat(void)
 	std::cout<<"Bureaucrat Destructor Called"<<std::endl;
 }
 
-const std::string Bureaucrat::getName(void) const
+std::string Bureaucrat::getName(void) const
 {
 	return (this->name);
 }
@@ -60,10 +53,7 @@ void Bureaucrat::increGrade(void)
 {
 	try {
 		if (this->grade == Bureaucrat::MAXGRADE)
-		{
-			GradeTooHighException e;
-			throw e;
-		}
+			throw GradeTooHighException();
 		this->grade--;
 	} catch (std::exception &e) {
 		std::cout<<e.what()<<std::endl;
@@ -74,19 +64,21 @@ void Bureaucrat::decreGrade(void)
 {
 	try {
 		if (this->grade == Bureaucrat::MINGRADE)
-		{
-			GradeTooLowException e;
-			throw e;
-		}
+			throw GradeTooLowException();
 		this->grade++;
 	} catch (std::exception &e) {
 		std::cout<<e.what()<<std::endl;
 	}
 }
 
-void Bureaucrat::signForm(const Form &form) const
+void Bureaucrat::signForm(Form &form)
 {
-	std::cout<<this->getName()<<" signed "<<form.getName()<<std::endl;
+	try {
+		form.beSigned(*this);//stack unwinding
+		std::cout<<this->getName()<<" signed "<<form.getName()<<std::endl;
+	} catch (std::exception &e) {
+		std::cout<<this->getName()<<" couldn't sign "<<form.getName()<<" because "<<e.what()<<std::endl;
+	}
 }
 
 const char *Bureaucrat::GradeTooHighException::what(void) const throw()

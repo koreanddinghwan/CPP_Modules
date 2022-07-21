@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 03:32:14 by myukang           #+#    #+#             */
-/*   Updated: 2022/07/21 03:32:15 by myukang          ###   ########.fr       */
+/*   Updated: 2022/07/22 01:53:05 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,12 @@ int main(void)
 
 	std::cout<<form<<std::endl;
 
-	form.beSigned(test1);
-
+	test1.signForm(form);
 	//
 	std::cout<<std::endl;
 
 	test1.increGrade();
-	form.beSigned(test1);
+	test1.signForm(form);
 
 	return 0;
 }

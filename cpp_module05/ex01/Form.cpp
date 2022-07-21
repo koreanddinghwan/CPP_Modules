@@ -7,23 +7,16 @@ Form::Form(void) : name("NoName"), is_signed(false), sign_perm(150), exec_perm(1
 
 Form::Form(const std::string name, const unsigned int sign_perm, const unsigned int exec_perm) : name(name), is_signed(false), sign_perm(sign_perm), exec_perm(exec_perm)
 {
+	std::cout<<"Form Constructor Called"<<std::endl;
 	try {
 		if (this->sign_perm < 1 || this->exec_perm < 1)
-		{
-			GradeTooHighException e;
-			throw e;
-		}
+			throw GradeTooHighException();
 		else if (this->sign_perm > 150 || this->exec_perm > 150)
-		{
-			GradeTooLowException e;
-			throw e;
-		}
+			throw GradeTooLowException();
 	} catch (std::exception &e) {
-		std::cout<<e.what()<<std::endl;
-		std::cout<<"Wrong Form Constructed... exit"<<std::endl;
+		std::cout<<"Wrong Form Constructed... by"<<e.what()<<"exit"<<std::endl;
 		exit(1);
 	}
-	std::cout<<"Form Constructor Called"<<std::endl;
 }
 
 Form::Form(const Form &copy) : name(copy.getName()), is_signed(copy.getSigned()), sign_perm(copy.getSignPerm()), exec_perm(copy.getExecPerm())
@@ -33,7 +26,7 @@ Form::Form(const Form &copy) : name(copy.getName()), is_signed(copy.getSigned())
 
 Form& Form::operator=(const Form &copy)
 {
-	this->is_signed = copy.getSigned();
+	(void)copy;
 	return (*this);
 }
 
@@ -42,7 +35,7 @@ Form::~Form(void)
 	std::cout<<"Form Destructor Called"<<std::endl;
 }
 
-const std::string Form::getName(void) const
+std::string Form::getName(void) const
 {
 	return (this->name);
 }
@@ -62,21 +55,13 @@ unsigned int Form::getExecPerm(void) const
 	return (this->exec_perm);
 }
 
-void Form::beSigned(const Bureaucrat &bure)
+void Form::beSigned(const Bureaucrat &bure) throw(IsAlreadySignedException, GradeTooLowException)
 {
 	if (this->getSigned() == true)
-		return ;
-	try {
-		if (bure.getGrade() > this->getSignPerm())
-		{
-			GradeTooLowException e;
-			throw (e);
-		}
-		this->is_signed = true;
-		bure.signForm(*this);
-	} catch (std::exception &e) {
-		std::cout<<bure.getName()<<" couldn't sign "<<this->getName()<<" because "<<e.what()<<std::endl;
-	}
+		throw IsAlreadySignedException();
+	if (bure.getGrade() > this->getSignPerm())
+		throw GradeTooLowException();
+	this->is_signed = true;
 }
 
 const char *Form::GradeTooHighException::what() const throw()
@@ -87,6 +72,11 @@ const char *Form::GradeTooHighException::what() const throw()
 const char *Form::GradeTooLowException::what() const throw()
 {
 	return ("[Form threw exception : Grade Too Low!]");
+}
+
+const char *Form::IsAlreadySignedException::what() const throw()
+{
+	return ("[Form threw exception : It is already signed!]");
 }
 
 std::ostream& operator<<(std::ostream &os, const Form &form)
