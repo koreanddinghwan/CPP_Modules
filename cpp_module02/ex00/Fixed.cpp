@@ -38,10 +38,10 @@ Fixed::~Fixed(void)
 int Fixed::getRawBits(void) const
 {
 	std::cout<<"getRawBits member function called"<<std::endl;
-	return (value);
+	return (this->value);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	value = raw;
+	this->value = raw;
 }

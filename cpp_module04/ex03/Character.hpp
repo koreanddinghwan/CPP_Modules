@@ -13,7 +13,9 @@ class Character : public ICharacter
 	private:
 		std::string name;
 		AMateria *slots[4];
+		AMateria *unequiped[100];
 		int idx;
+		int unequiped_idx;
 	public:
 		Character(void);
 		Character(const std::string name);

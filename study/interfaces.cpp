@@ -17,18 +17,18 @@ class Derived : public Interfaces
 		Derived(void);
 		~Derived(void);
 	public:
-		void InterfacesFnc(void);
+		void InterfacesFnc(void) const;
 };
 
-Derived::Derived(void)
+Derived::Derived(void) : Interfaces()
 {
 	this->test = new std::string[10];
 }
-/*
-void Derived::InterfacesFnc(void)
+
+void Derived::InterfacesFnc(void) const
 {
 	std::cout<<"test"<<std::endl;
-}*/
+}
 
 Derived::~Derived(void)
 {
@@ -37,7 +37,7 @@ Derived::~Derived(void)
 
 int main(void)
 {
-	Derived obj1();
+	Derived obj1;
 
 	return (0);
 }

@@ -115,10 +115,7 @@ bool Fixed::operator<=(const Fixed &target) const
 
 bool Fixed::operator==(const Fixed &target) const
 {
-	if (this->rawbits == target.getRawBits())
-		return (true);
-	else
-		return (false);
+	return (this->rawbits == target.getRawBits());
 }
 
 bool Fixed::operator!=(const Fixed &target) const

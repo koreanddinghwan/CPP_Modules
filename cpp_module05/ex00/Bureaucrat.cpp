@@ -27,6 +27,7 @@ Bureaucrat::Bureaucrat(const std::string name, const unsigned int grade) : name(
 		this->grade = grade;
 	} catch (std::exception &e) {
 		std::cout<<e.what()<<std::endl;
+		std::cout<<"Wrong Bureaucrat Constructed...exit"<<std::endl;
 		exit(1);
 	}
 }

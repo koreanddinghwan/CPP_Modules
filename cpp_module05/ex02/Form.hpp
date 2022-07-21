@@ -20,13 +20,14 @@ class Form
 		Form(const std::string name, const unsigned int sign_perm, const unsigned int exec_perm);
 		Form(const Form &copy);
 		Form& operator=(const Form &copy);
-		~Form(void);
+		virtual ~Form(void);
 	public:
 		const std::string getName(void) const;
 		bool getSigned(void) const;
 		unsigned int getSignPerm(void) const;
 		unsigned int getExecPerm(void) const;
 		void beSigned(const Bureaucrat &bure);
+		virtual void execute(Bureaucrat const & executor) const = 0;
 
 	class GradeTooHighException : public std::exception 
 	{

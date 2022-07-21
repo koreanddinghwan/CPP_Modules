@@ -51,6 +51,5 @@ int main()
 	test->print_think();
 
 	delete test;
-	while (1);
 	return 0;
 }
