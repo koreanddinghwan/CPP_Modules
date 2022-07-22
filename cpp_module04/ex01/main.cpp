@@ -3,6 +3,9 @@
 
 int main()
 {
+	const Animal *k = new Animal();
+	delete k;
+
 	const Animal* j = new Dog();
 	std::cout<<std::endl;
 	std::cout<<std::endl;

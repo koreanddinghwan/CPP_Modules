@@ -1,7 +1,7 @@
 #include "Character.hpp"
 #include "AMateria.hpp"
 
-Character::Character(void) : ICharacter(), name("NoName"), idx(0)
+Character::Character(void) : ICharacter(), name("NoName"), idx(0), unequiped_idx(0)
 {
 	std::cout<<"Character Constructor Called"<<std::endl;
 }

@@ -17,7 +17,7 @@ class Animal
 		//test with
 		//~Animal();
 	public:
-		virtual void makeSound(void) const;//순수가상함수(ex02)
+		virtual void makeSound(void) const;
 		//void makeSound(void) const;
 		std::string getType(void) const;
 		void set_type(std::string copy);
