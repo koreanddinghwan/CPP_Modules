@@ -31,7 +31,10 @@ MateriaSource::~MateriaSource(void)
 void MateriaSource::learnMateria(AMateria *mate)
 {
 	if (this->idx > 3)
+	{
+		delete mate;
 		return ;
+	}
 	this->slots[this->idx++] = mate;
 }
 
