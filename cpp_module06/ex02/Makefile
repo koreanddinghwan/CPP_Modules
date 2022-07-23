@@ -3,7 +3,7 @@ CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address -std=c++98
 INC = .
 
-SRCS = $(addprefix ./, main.cpp Data.cpp)
+SRCS = $(addprefix ./, main.cpp Base.cpp A.cpp B.cpp C.cpp)
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
