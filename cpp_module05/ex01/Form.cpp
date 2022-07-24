@@ -8,15 +8,10 @@ Form::Form(void) : name("NoName"), is_signed(false), sign_perm(150), exec_perm(1
 Form::Form(const std::string name, const unsigned int sign_perm, const unsigned int exec_perm) : name(name), is_signed(false), sign_perm(sign_perm), exec_perm(exec_perm)
 {
 	std::cout<<"Form Constructor Called"<<std::endl;
-	try {
-		if (this->sign_perm < 1 || this->exec_perm < 1)
-			throw GradeTooHighException();
-		else if (this->sign_perm > 150 || this->exec_perm > 150)
-			throw GradeTooLowException();
-	} catch (std::exception &e) {
-		std::cout<<"Wrong Form Constructed... by"<<e.what()<<"exit"<<std::endl;
-		exit(1);
-	}
+	if (this->sign_perm < 1 || this->exec_perm < 1)
+		throw GradeTooHighException();
+	else if (this->sign_perm > 150 || this->exec_perm > 150)
+		throw GradeTooLowException();
 }
 
 Form::Form(const Form &copy) : name(copy.getName()), is_signed(copy.getSigned()), sign_perm(copy.getSignPerm()), exec_perm(copy.getExecPerm())

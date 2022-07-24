@@ -14,17 +14,24 @@
 
 int main(void)
 {
-//	Bureaucrat test("Bob", 0);
+	try {
 
-	Bureaucrat test1("pam", 2);
-	test1.increGrade();
-	test1.increGrade();
+		Bureaucrat test("Bob", 0);
+		Bureaucrat test1("pam", 2);
+		Bureaucrat test2("map", 149);
 
-	std::cout<<test1<<std::endl;
+		test1.increGrade();
+		test1.increGrade();
 
-	Bureaucrat test2("map", 149);
-	test2.decreGrade();
-	test2.decreGrade();
-	std::cout<<test2<<std::endl;
+		std::cout<<test1<<std::endl;
+
+		test2.decreGrade();
+		test2.decreGrade();
+		std::cout<<test2<<std::endl;
+
+	} catch (std::exception &e)
+	{
+		e.what();
+	}
 	return 0;
 }

@@ -13,16 +13,11 @@ Bureaucrat::Bureaucrat(const std::string name) : name(name), grade(0)
 Bureaucrat::Bureaucrat(const std::string name, const unsigned int grade) : name(name)
 {
 	std::cout<<"Bureaucrat Constructor Called"<<std::endl;
-	try {
-		if (grade < Bureaucrat::MAXGRADE)
-			throw GradeTooHighException();
-		else if (grade > Bureaucrat::MINGRADE)
-			throw GradeTooLowException();
-		this->grade = grade;
-	} catch (std::exception &e) {
-		std::cout<<"Wrong Bureaucrat Constructed... by"<<e.what()<<"exit"<<std::endl;
-		exit(1);
-	}
+	if (grade < Bureaucrat::MAXGRADE)
+		throw GradeTooHighException();
+	else if (grade > Bureaucrat::MINGRADE)
+		throw GradeTooLowException();
+	this->grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : name(copy.getName()), grade(copy.getGrade())
@@ -51,24 +46,16 @@ unsigned int Bureaucrat::getGrade(void) const
 
 void Bureaucrat::increGrade(void)
 {
-	try {
-		if (this->grade == Bureaucrat::MAXGRADE)
-			throw GradeTooHighException();
-		this->grade--;
-	} catch (std::exception &e) {
-		std::cout<<e.what()<<std::endl;
-	}
+	if (this->grade == Bureaucrat::MAXGRADE)
+		throw GradeTooHighException();
+	this->grade--;
 }
 
 void Bureaucrat::decreGrade(void)
 {
-	try {
-		if (this->grade == Bureaucrat::MINGRADE)
-			throw GradeTooLowException();
-		this->grade++;
-	} catch (std::exception &e) {
-		std::cout<<e.what()<<std::endl;
-	}
+	if (this->grade == Bureaucrat::MINGRADE)
+		throw GradeTooLowException();
+	this->grade++;
 }
 
 void Bureaucrat::signForm(Form &form)
@@ -83,12 +70,12 @@ void Bureaucrat::signForm(Form &form)
 
 void Bureaucrat::executeForm(const Form &form)
 {
-	std::cout<<this->getName()<<" is executing form"<<std::endl;
 	try {
+		std::cout<<this->getName()<<" is executing form"<<std::endl;
 		form.execute(*this);
 		std::cout<<this->getName()<<" executed "<<form.getName()<<std::endl;
 	} catch (std::exception &e) {
-		std::cout<<this->getName()<<" failed to execute by"<<e.what()<<std::endl;
+		std::cout<<this->getName()<<" couldn't execute "<<form.getName()<<" because "<<e.what()<<std::endl;
 	}
 }
 

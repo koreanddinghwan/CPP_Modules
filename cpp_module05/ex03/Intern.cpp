@@ -28,26 +28,21 @@ Intern::~Intern(void)
 Form *Intern::makeForm(const std::string formName, const std::string target)
 {
 	std::string slots[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
-	try {
-		for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 3; i++)
+	{
+		if (slots[i].compare(formName) == 0)
 		{
-			if (slots[i].compare(formName) == 0)
-			{
-				switch (i) {
-					case 0:
-						return (new ShrubberyCreationForm(target));
-					case 1:
-						return (new RobotomyRequestForm(target));
-					case 2:
-						return (new PresidentialPardonForm(target));
-				}
+			switch (i) {
+				case 0:
+					return (new ShrubberyCreationForm(target));
+				case 1:
+					return (new RobotomyRequestForm(target));
+				case 2:
+					return (new PresidentialPardonForm(target));
 			}
 		}
-		throw FormNameException();
-	} catch (std::exception &e)
-	{
-		std::cout<<e.what()<<std::endl;
 	}
+	throw FormNameException();
 	return (NULL);
 }
 
